@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class trabajo1 {
 
 }
@@ -15,12 +17,16 @@ class Cliente {
 class Pedido {
     private Cliente cliente;
     private int numPedido;
-    private String[] articulos;
+    private ArrayList<String> articulos;
 
-    public Pedido(Cliente cliente, int numPedido, String articulos) {
+    public Pedido(Cliente cliente, int numPedido, ArrayList<String> articulos) {
         this.cliente = cliente;
         this.numPedido = numPedido;
         this.articulos = articulos;
+    }
+
+    public void addArticulos(String articulo) {
+        this.articulos.add(articulo);
     }
 }
 

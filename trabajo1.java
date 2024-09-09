@@ -33,11 +33,11 @@ public class trabajo1 {
         }
 
         System.out.println("\n-- Datos del Pago --");
-        System.out.println("Método de Pago: " + pago.getMetodoPago());
-        System.out.println("Cantidad: " + pago.getCantidad());
+        System.out.println("Método de Pago: " + pago.getmetodoPago());
+        System.out.println("Cantidad: " + pago.getcantidad());
 
         System.out.println("\n-- Datos de la Notificación --");
-        System.out.println("Correo: " + notificacion.getCorreo());
+        System.out.println("Correo: " + notificacion.getcorreo());
     }
 }
 
@@ -113,6 +113,12 @@ class Pago {
         this.metodoPago = metodoPago;
         this.cantidad = cantidad;
     }
+    public int getcantidad() {
+        return cantidad;
+    }
+    public String getmetodoPago() {
+        return metodoPago;
+    }
 }
 
 class Notificacion {
@@ -122,5 +128,8 @@ class Notificacion {
     public Notificacion(Pedido pedido, String correo) {
         this.pedido = pedido;
         this.correo = correo;
+    }
+    public String getcorreo() {
+        return correo;
     }
 }

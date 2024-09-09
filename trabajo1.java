@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class trabajo1 {
     public static void main(String[] args) {
         // Datos predefinidos para las variables
         String clienteName = "Juan Pérez";
         String clienteDireccion = "Calle Principal 123";
         int pedidoNumero = 12345;
-        String[] pedidoArticulos = { "Producto A", "Producto B", "Producto C" };
+        ArrayList<String> pedidoArticulos = new ArrayList<>(Arrays.asList("Producto A", "Producto B", "Producto C"));
         String pagoMetodo = "Tarjeta de crédito";
         int pagoCantidad = 500;
         String notificacionCorreo = "juanperez@example.com";
@@ -67,9 +70,9 @@ class Cliente {
 class Pedido {
     private Cliente cliente;
     private int numPedido;
-    private String[] articulos;
+    private ArrayList<String> articulos;
 
-    public Pedido(Cliente cliente, int numPedido, String[] articulos) {
+    public Pedido(Cliente cliente, int numPedido, ArrayList<String> articulos) {
         this.cliente = cliente;
         this.numPedido = numPedido;
         this.articulos = articulos;
@@ -91,12 +94,12 @@ class Pedido {
         this.numPedido = numPedido;
     }
 
-    public String[] getArticulos() {
+    public ArrayList<String> getArticulos() {
         return this.articulos;
     }
 
-    public void setArticulos(String[] articulos) {
-        this.articulos = articulos;
+    public void addArticulos(String articulo) {
+        this.articulos.add(articulo);
     }
 }
 

@@ -15,7 +15,7 @@ class Cliente {
 class Pedido {
     private Cliente cliente;
     private int numPedido;
-    private String articulos;
+    private String[] articulos;
 
     public Pedido(Cliente cliente, int numPedido, String articulos) {
         this.cliente = cliente;

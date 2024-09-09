@@ -1,14 +1,66 @@
 public class trabajo1 {
+    public static void main(String[] args) {
+        // Datos predefinidos para las variables
+        String clienteName = "Juan Pérez";
+        String clienteDireccion = "Calle Principal 123";
+        int pedidoNumero = 12345;
+        String[] pedidoArticulos = { "Producto A", "Producto B", "Producto C" };
+        String pagoMetodo = "Tarjeta de crédito";
+        int pagoCantidad = 500;
+        String notificacionCorreo = "juanperez@example.com";
 
+        Cliente cliente = new Cliente(clienteName, clienteDireccion);
+        Pedido pedido = new Pedido(cliente, pedidoNumero, pedidoArticulos);
+        Pago pago = new Pago(pedido, pagoMetodo, pagoCantidad);
+        Notificacion notificacion = new Notificacion(pedido, notificacionCorreo);
+
+        mostrarDatos(cliente, pedido, pago, notificacion);
+    }
+
+    public static void mostrarDatos(Cliente cliente, Pedido pedido, Pago pago, Notificacion notificacion) {
+        System.out.println("-- Datos del Cliente --");
+        System.out.println("Nombre: " + cliente.getNombre());
+        System.out.println("Dirección: " + cliente.getDireccion());
+
+        System.out.println("\n-- Datos del Pedido --");
+        System.out.println("Número de Pedido: " + pedido.getNumPedido());
+        System.out.println("Artículos:");
+        for (String articulo : pedido.getArticulos()) {
+            System.out.println("- " + articulo);
+        }
+
+        System.out.println("\n-- Datos del Pago --");
+        System.out.println("Método de Pago: " + pago.getMetodoPago());
+        System.out.println("Cantidad: " + pago.getCantidad());
+
+        System.out.println("\n-- Datos de la Notificación --");
+        System.out.println("Correo: " + notificacion.getCorreo());
+    }
 }
 
 class Cliente {
     private String nombre;
-    private String dierccion;
+    private String direccion;
 
     public Cliente(String nombre, String direccion) {
         this.nombre = nombre;
-        this.dierccion = direccion;
+        this.direccion = direccion;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return this.direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }
 
@@ -17,9 +69,33 @@ class Pedido {
     private int numPedido;
     private String[] articulos;
 
-    public Pedido(Cliente cliente, int numPedido, String articulos) {
+    public Pedido(Cliente cliente, int numPedido, String[] articulos) {
         this.cliente = cliente;
         this.numPedido = numPedido;
+        this.articulos = articulos;
+    }
+
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public int getNumPedido() {
+        return this.numPedido;
+    }
+
+    public void setNumPedido(int numPedido) {
+        this.numPedido = numPedido;
+    }
+
+    public String[] getArticulos() {
+        return this.articulos;
+    }
+
+    public void setArticulos(String[] articulos) {
         this.articulos = articulos;
     }
 }
